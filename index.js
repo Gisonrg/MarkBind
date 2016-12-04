@@ -4,7 +4,6 @@
 const chalk = require('chalk');
 const clear = require('clear');
 const figlet = require('figlet');
-const _ = require('lodash');
 const fs = require('fs');
 
 const Parser = require('./lib/parser');
@@ -16,7 +15,7 @@ console.log(
     )
 );
 
-let inputFile = '/home/jason/code/markbind/src/requirements/Requirements_online.md';
+let inputFile = '/home/jason/code/markbind/src/index.html';
 
 let markbindParser = new Parser();
 markbindParser.parseFile(inputFile, (error, html) => {
