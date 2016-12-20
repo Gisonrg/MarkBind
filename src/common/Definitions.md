@@ -12,8 +12,8 @@ A project that aim to develop a totally new system with no precedent.
 
 #F
 #### Functional Requirements
-<include ../requirements/FunctionalRequirements.md#def-FR/>
+<include src="../requirements/FunctionalRequirements.md#def-FR" />
 
 #N
 #### Non Functional Requirements
-<include ../requirements/NonFunctionalRequirements.md#def-NFR/>
+<include src="../requirements/NonFunctionalRequirements.md#def-NFR" />
