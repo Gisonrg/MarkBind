@@ -17,6 +17,7 @@
     "clear": "^0.0.1",
     "commander": "^2.9.0",
     "figlet": "^1.2.0",
+    "html": "^1.0.0",
     "htmlparser2": "^3.9.2",
     "lodash": "^4.17.2",
     "markdown-it": "^8.2.1",

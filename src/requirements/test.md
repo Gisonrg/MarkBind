@@ -6,3 +6,5 @@ have to be understood, discussed, refined, clarified,
 <info src="../common/Definitions.md#Scope">scoped</info> or re-scoped.
 
 <include src="nestedInclude.md" />
+
+<include src="../index.html" />
