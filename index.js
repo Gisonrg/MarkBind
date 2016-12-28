@@ -15,11 +15,14 @@ const Parser = require('./lib/parser');
 let markbindParser = new Parser();
 
 clear();
-console.log(
-  chalk.yellow(
-    figlet.textSync('MarkBind', {horizontalLayout: 'full'})
-  )
-);
+
+function printLogo() {
+  console.log(
+    chalk.yellow(
+      figlet.textSync('MarkBind', {horizontalLayout: 'full'})
+    )
+  );
+}
 
 program
   .version('0.1.0')
@@ -40,6 +43,7 @@ program
         return;
       }
       if (program.output) {
+        printLogo();
         let outputPath = path.resolve(process.cwd(), program.output);
         try {
           fs.statSync(path.dirname(outputPath));
@@ -68,6 +72,7 @@ program
       }
       result = html.prettyPrint(result, {indent_size: 2});
       if (program.output) {
+        printLogo();
         let outputPath = path.resolve(process.cwd(), program.output);
         try {
           fs.statSync(path.dirname(outputPath));
