@@ -33,16 +33,24 @@ program
   .command('include <file>')
   .description('process all the include in the given file')
   .action(function (file) {
-    // TODO: need to check file existence
-    let output = program.output || 'output';
     markbindParser.fileInclude(file, (error, result) => {
       if (error) {
-        return console.log('Error processing file including.');
+        console.log(chalk.red('Error processing file including:'));
+        console.log(chalk.red(error.message));
+        return;
       }
-      let parsedPath = path.parse(file);
-      let outputPath = path.join(process.cwd(), parsedPath.name + '_out' + parsedPath.ext);
-      console.log('Writting to ' + outputPath);
-      fs.writeFileSync(outputPath, result);
+      if (program.output) {
+        let outputPath = path.resolve(process.cwd(), program.output);
+        try {
+          fs.statSync(path.dirname(outputPath));
+        } catch(error) {
+          fs.mkdirSync(path.dirname(outputPath));
+        }
+        console.log(chalk.cyan('Result was written to ' + outputPath));
+        fs.writeFileSync(outputPath, result);
+      } else {
+        console.log(result);
+      }
     });
   });
 
@@ -54,12 +62,23 @@ program
     let output = program.output || 'output';
     markbindParser.renderFile(file, (error, result) => {
       if (error) {
-        return console.log('Error processing file rendering.');
+        console.log(chalk.red('Error processing file rendering:'));
+        console.log(chalk.red(error.message));
+        return;
       }
       result = html.prettyPrint(result, {indent_size: 2});
-      let outputPath = path.join(process.cwd(), path.parse(file).name + '_rendered.html');
-      console.log('Writting to ' + outputPath);
-      fs.writeFileSync(outputPath, result);
+      if (program.output) {
+        let outputPath = path.resolve(process.cwd(), program.output);
+        try {
+          fs.statSync(path.dirname(outputPath));
+        } catch(error) {
+          fs.mkdirSync(path.dirname(outputPath));
+        }
+        console.log(chalk.cyan('Result was written to ' + outputPath));
+        fs.writeFileSync(outputPath, result);
+      } else {
+        console.log(result);
+      }
     });
   });
 
