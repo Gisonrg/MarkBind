@@ -4,7 +4,7 @@ support including markdown fragment files and markdown segments.
  
 ## Installation
 1. Clone the repo.
-2. `npm install` ()or `yarn install` if you have Yarn installed) to install dependent packages.
+2. `npm install` (or `yarn install` if you have Yarn installed) to install dependent packages.
 3. `npm link` to make `markbind` a command supported in your commandline.
 
 ## Usage
