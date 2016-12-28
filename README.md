@@ -20,5 +20,21 @@ support including markdown fragment files and markdown segments.
 
     -h, --help           output usage information
     -V, --version        output the version number
-    -o, --output <path>  output file path (default: where you run the command)
+    -o, --output <path>  output file path (if not present, print to )
+```
+
+## Example
+Print the included result to terminal.
+```
+$ markbind include src/test.md
+```
+
+Save the included result to `test_out.md`. (using terminal I/O)
+```
+$ markbind include src/test.md > test_out.md
+```
+
+Save the included result to `test_out.md`. (Using `--ouput` option)
+```
+$ markbind include src/test.md -o test_out.md
 ```
